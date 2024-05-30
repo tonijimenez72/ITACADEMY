@@ -8,6 +8,6 @@ public class Percussion extends Instrument{
 
     @Override
     public void play() {
-        System.out.println("Està sonant un instrument de percussió. " + instrument());
+        System.out.println("A percussion instrument sounds.");
     }
 }

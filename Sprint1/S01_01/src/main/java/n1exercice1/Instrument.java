@@ -1,6 +1,5 @@
 package n1exercice1;
 
-
 abstract class Instrument {
 
     public static final String ANSI_GREEN = "\u001B[32m";
@@ -31,12 +30,8 @@ abstract class Instrument {
 
     public abstract void play();
 
-    static String instrument() {
-        return ("És un/a " + getName().toLowerCase() + " de " + getPrice() + " €.");
-    }
-
-    static{
-        System.out.println(ANSI_GREEN + "Static initialization block:" + ANSI_RESET + " Comencem.\n");
+   static{
+        System.out.println(ANSI_GREEN + "Static initialization block:\n" + ANSI_RESET + "Ready, steady, go!\n");
     }
 
     {

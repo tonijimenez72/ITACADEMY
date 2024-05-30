@@ -8,6 +8,6 @@ public class Wind extends Instrument{
 
     @Override
     public void play() {
-        System.out.println("Està sonant un instrument de vent. " + instrument());
+        System.out.println("A wind instrument sounds.");
     }
 }
