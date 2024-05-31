@@ -1,4 +1,4 @@
-package n3exercice1;
+package n3exercise1;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package n1exercice2;
+package n1exercise2;
 
 public class Main {
     public static final String ANSI_GREEN = "\u001B[32m";

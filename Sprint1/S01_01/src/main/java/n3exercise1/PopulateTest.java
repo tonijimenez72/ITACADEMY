@@ -1,4 +1,4 @@
-package n3exercice1;
+package n3exercise1;
 
 public class PopulateTest {
     public static void populate() {

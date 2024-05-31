@@ -1,9 +1,9 @@
-package n3exercice1;
+package n3exercise1;
 
-public class F1 extends News{
+public class MotoRacing extends News{
     private String team;
 
-    public F1(Journalist journalist, String headline, String team) {
+    public MotoRacing(Journalist journalist, String headline, String team) {
         super(journalist, headline);
         this.team = team;
     }
@@ -19,7 +19,7 @@ public class F1 extends News{
     @Override
     public double calculatePrice() {
         double price = 100;
-        if (team.equalsIgnoreCase("Ferrari") || team.equalsIgnoreCase("Mercedes")){
+        if (team.equalsIgnoreCase("Honda") || team.equalsIgnoreCase("Yamaha")){
             price += 50;
         }
         return price;
@@ -27,10 +27,10 @@ public class F1 extends News{
 
     @Override
     public int calculateScore() {
-        int score = 4;
-        if (team.equalsIgnoreCase("Ferrari") || team.equalsIgnoreCase("Mercedes")){
-            score += 2;
+        int score = 3;
+        if (team.equalsIgnoreCase("Honda") || team.equalsIgnoreCase("Yamaha")){
+            score += 3;
         }
-       return score;
+        return score;
     }
 }

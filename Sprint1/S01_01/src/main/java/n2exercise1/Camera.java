@@ -1,4 +1,4 @@
-package n2exercice1;
+package n2exercise1;
 
 public interface Camera {
     void photograph();

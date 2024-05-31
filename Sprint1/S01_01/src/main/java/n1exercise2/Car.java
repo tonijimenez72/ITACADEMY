@@ -1,4 +1,4 @@
-package n1exercice2;
+package n1exercise2;
 
 public class Car {
     private static final String TRADEMARK = "SEAT";
