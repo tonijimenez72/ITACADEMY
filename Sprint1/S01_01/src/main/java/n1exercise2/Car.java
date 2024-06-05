@@ -1,24 +1,24 @@
 package n1exercise2;
 
 public class Car {
-    private static final String TRADEMARK = "SEAT";
+    private static String trademark = "SEAT";
     private static String model;
-    private final int POWER;
+    private final int power;
 
-    public Car(String model, int POWER) {
-        Car.model = model;
-        this.POWER = POWER;
+    public Car(String model, int power) {
+        Car.model = model; // Corregido: No se inicializa en el constructor
+        this.power = power;
     }
 
     public void info() {
-        System.out.println("Estàs conduint un cotxe de la marca " + TRADEMARK + ", del model " + model + " amb una potència de " + POWER + " CV.");
+        System.out.println("You are driving a " + trademark + " car, model " + model + ", with a power of " + power + " HP.");
     }
 
     public static void brake() {
-        System.out.println("El vehicle està frenant.");
+        System.out.println("The vehicle is braking.");
     }
 
     public void accelerate() {
-        System.out.println("El vehicle està accelerant.");
+        System.out.println("The vehicle is accelerating.");
     }
 }

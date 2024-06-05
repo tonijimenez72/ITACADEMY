@@ -6,26 +6,26 @@ abstract class Instrument {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_RESET = "\u001B[0m";
 
-    private static String name;
-    protected static double price;
+    protected String name;
+    protected double price;
 
     public Instrument(String name, double price) {
         this.setName(name);
         this.setPrice(price);
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
-    public static double getPrice() {
+    public double getPrice() {
         return price;
     }
 
     public void setName(String name) {
-        Instrument.name = name;
+        this.name = name;
     }
     public void setPrice(double price) {
-        Instrument.price = price;
+        this.price = price;
     }
 
     public abstract void play();

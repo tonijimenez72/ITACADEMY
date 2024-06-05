@@ -20,7 +20,7 @@ public class Countries {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] parts = line.split(" ");
-                if (parts.length == 2) { // Asegurarse de que haya exactamente dos partes
+                if (parts.length == 2) {
                     countriesMap.put(parts[0], parts[1]);
                 } else {
                     System.out.println("Invalid line format: " + line);

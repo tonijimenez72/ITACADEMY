@@ -9,13 +9,13 @@ public class Main {
         Car one = new Car("Panda", 100);
         one.info();
         one.accelerate();
-        one.brake();
+        Car.brake();
 
         System.out.println(ANSI_GREEN + "\nDon't miss the static Panda!" + ANSI_RESET);
         Car two = new Car("Ibiza TSI", 150);
         two.info();
         two.accelerate();
-        two.brake();
+        Car.brake();
 
         System.out.println(ANSI_GREEN + "\nLet's do the static brake!" + ANSI_RESET);
         Car.brake();

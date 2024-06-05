@@ -109,35 +109,41 @@ public class IOMenu {
     }
 
     public void addPerson(Scanner scanner) {
-        String name;
-        String surname;
-        String dni;
+        String name = "";
+        String surname = "";
+        String dni = "";
 
-        while (true) {
+        boolean validInput = false;
+
+        while (!validInput) {
             System.out.print("Enter name (letters without accents and spaces only): ");
             name = scanner.nextLine();
             if (name.matches("[a-zA-Z ]+")) {
-                break;
+                validInput = true;
             } else {
                 System.out.println("Invalid input. Name must contain letters without accents and spaces only.");
             }
         }
 
-        while (true) {
+        validInput = false;
+
+        while (!validInput) {
             System.out.print("Enter surname (letters without accents and spaces only): ");
             surname = scanner.nextLine();
             if (surname.matches("[a-zA-Z ]+")) {
-                break;
+                validInput = true;
             } else {
                 System.out.println("Invalid input. Surname must contain letters without accents and spaces only.");
             }
         }
 
-        while (true) {
+        validInput = false;
+
+        while (!validInput) {
             System.out.print("Enter DNI (letters and numbers only, no spaces): ");
             dni = scanner.nextLine();
             if (dni.matches("[a-zA-Z0-9]+")) {
-                break;
+                validInput = true;
             } else {
                 System.out.println("Invalid input. DNI must contain letters and numbers only, and no spaces.");
             }
