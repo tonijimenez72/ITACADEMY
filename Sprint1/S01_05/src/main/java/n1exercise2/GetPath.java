@@ -4,26 +4,44 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
 public class GetPath {
-    private static int depth = 0;
-
-    public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_RESET = "\u001B[0m";
 
+    private static int depth = 0;
+
+    public static void recursiveLs(String[] args) {
+        String readPath = "";
+
+        readPath = checkParameter(args);
+        String result = getChildItemsRecursive(readPath);
+        System.out.println(result);
+    }
+
     public static String checkParameter(String[] args) {
-        String result;
-        if (args.length < 1) {
-            result = "Please, provide a path as parameter. +\n"
-                    + "Follow the README.md instructions";
+        String path = "";
+        if (args.length > 0) {
+            path = args[0];
         } else {
-            result = args[0];
+            Scanner scanner = new Scanner(System.in);
+            while (path.isEmpty()) {
+                System.out.println("Path not provided as parameter\n"
+                        + "Please, enter a valid path (example: C:/Test):");
+                path = scanner.nextLine();
+            }
         }
-        return result;
+        return path;
+    }
+
+    public static String formatPath(String path) {
+        String os = System.getProperty("os.name").toLowerCase();
+        System.out.println("Operating System: " + os);
+        path = path.replace("\"", "");
+        return path;
     }
 
     public static String getChildItemsRecursive(String path) {
@@ -39,23 +57,24 @@ public class GetPath {
                 result += indent() + ANSI_CYAN + path + ": " + ANSI_RESET + ANSI_YELLOW + "is a file." + ANSI_RESET + "\n";
             } else {
                 File[] files = directory.listFiles();
-                if (files == null || files.length == 0) {
-                    result += indent() + ANSI_BLUE + path + ANSI_RESET + " - " + ANSI_RESET + ANSI_YELLOW + "empty directory." + ANSI_RESET + "\n";
-                } else {
-                    Arrays.sort(files);
-                    for (File file : files) {
-                        if (file.isDirectory()) {
-                            result += indent() + ANSI_BLUE + "D  " + file.getName() + ANSI_RESET + " - " + getLastModifiedDate(file) + ANSI_RESET + "\n";
-                            depth++;
-                            result += getChildItemsRecursive(file.getAbsolutePath());
-                            depth--;
-                        } else {
-                            result += indent() + ANSI_CYAN + "F  " + file.getName()  + ANSI_RESET + " - " + getLastModifiedDate(file) + "\n";
-                        }
+                Arrays.sort(files);
+
+                for (File file : files) {
+                    if (!file.isDirectory()) {
+                        result += indent() + "F  " + file.getName() + " - " + getLastModifiedDate(file) + "\n";
+                    }
+                }
+
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        result += indent() + ANSI_BLUE + "D  " + file.getName() + ANSI_RESET + " - " + getLastModifiedDate(file) + ANSI_RESET + "\n";
+                        depth++;
+                        result += getChildItemsRecursive(file.getAbsolutePath());
+                        depth--;
                     }
                 }
             }
-        }catch(Exception e){
+        } catch(Exception e) {
             System.out.println(ANSI_CYAN + path + ". " + ANSI_RESET + ANSI_YELLOW + "Unexpected error: " + ANSI_RESET + "Commander, signal the following in all languages and in all frequencies: 'We surrender'.");
         }
         return result;
@@ -63,7 +82,7 @@ public class GetPath {
 
     private static String indent() {
         String result = "";
-        for (int i = 0; i < depth; i++) { // Utiliza depth para la indentación
+        for (int i = 0; i < depth; i++) {
             result += "-";
         }
         return result;

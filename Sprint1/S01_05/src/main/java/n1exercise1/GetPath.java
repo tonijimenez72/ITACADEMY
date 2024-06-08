@@ -2,29 +2,49 @@ package n1exercise1;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class GetPath {
-    public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_RESET = "\u001B[0m";
 
+    public static void simpleLs(String[] args) {
+        String readPath = "";
+
+        readPath = checkParameter(args);
+        String result = getChildItems(readPath);
+        System.out.println(result);
+    }
+
     public static String checkParameter(String[] args) {
-        String result = "";
-        if (args.length < 1) {
-            result = "Please, provide a path as parameter.\n"
-                    + "Follow the README.md instructions";
+        String path = "";
+        if (args.length > 0) {
+            path = args[0];
         } else {
-            result = args[0];
+            Scanner scanner = new Scanner(System.in);
+            while (path.isEmpty()) {
+                System.out.println("Path not provided as parameter\n"
+                        + "Please, enter a valid path (example: C:/Test):");
+                path = scanner.nextLine();
+            }
         }
-        return result;
+        return path;
+    }
+
+    public static String formatPath(String path) {
+        String os = System.getProperty("os.name").toLowerCase();
+        System.out.println("Operating System: " + os);
+        if (!path.startsWith("\"") && !path.endsWith("\"")) {
+            path = "\"" + path + "\"";
+        }
+        return path;
     }
 
     public static String getChildItems(String path) {
         String result = "";
 
         try{
-            path = path.replace("/", File.separator).replace("\\", File.separator);
             File directory = new File(path);
 
             if (!directory.exists()) {
@@ -40,7 +60,7 @@ public class GetPath {
                     for (File file : files) {
                         result += file.getName() + "\n";
                     }
-                    result = ANSI_CYAN + path + ":\n" + ANSI_RESET + ANSI_GREEN + result + ANSI_RESET;
+                    result = ANSI_CYAN + path + ":\n" + ANSI_RESET + result;
                 }
             }
         }catch(Exception e){
