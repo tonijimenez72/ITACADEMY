@@ -1,25 +1,18 @@
 package n2exercise1;
 
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
+public class StringLengthMatcher {
+    private String string;
+    private int length;
 
-public class StringLengthMatcher extends TypeSafeMatcher<String> {
-
-    private final Matcher<Integer> matcher;
-
-    public StringLengthMatcher(Matcher<Integer> matcher) {
-        this.matcher = matcher;
+    public StringLengthMatcher(String string, int length) {
+        this.string = string;
+        this.length = length;
     }
 
-    @Override
-    protected boolean matchesSafely(String item) {
-        return matcher.matches(item.length());
+    public String getString() {
+        return string;
     }
-
-    @Override
-    public void describeTo(Description description) {
-        description.appendText("a string with length ").appendDescriptionOf(matcher);
+    public int getLength() {
+        return length;
     }
-
 }
