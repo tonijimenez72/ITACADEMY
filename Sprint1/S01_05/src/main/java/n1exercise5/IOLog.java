@@ -47,9 +47,9 @@ public class IOLog {
                 String classFilePath = Main.class.getResource("Main.class").getPath();
                 String projectPath = classFilePath.substring(1, classFilePath.indexOf("/target/classes"));
                 String mainJavaPath = projectPath + "/src/main/java/" + exercise.replace(".", "/");
-                filePath = mainJavaPath + "/resources/" + file;
+                filePath = mainJavaPath + "/resources/" + file + ".txt";
             }else{
-                filePath = "resources/" + file;
+                filePath = "resources/" + file + ".txt";
             }
             return filePath;
         } catch (Exception e) {

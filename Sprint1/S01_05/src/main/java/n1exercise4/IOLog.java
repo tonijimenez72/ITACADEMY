@@ -1,7 +1,5 @@
 package n1exercise4;
 
-import n1exercise3.Main;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -49,9 +47,9 @@ public class IOLog {
                 String classFilePath = Main.class.getResource("Main.class").getPath();
                 String projectPath = classFilePath.substring(1, classFilePath.indexOf("/target/classes"));
                 String mainJavaPath = projectPath + "/src/main/java/" + exercise.replace(".", "/");
-                filePath = mainJavaPath + "/resources/" + file;
+                filePath = mainJavaPath + "/resources/" + file + ".txt";
             }else{
-                filePath = "resources/" + file;
+                filePath = "resources/" + file + ".txt";
             }
             return filePath;
         } catch (Exception e) {
