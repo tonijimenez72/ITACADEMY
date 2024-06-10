@@ -1,4 +1,4 @@
-package n2exercise5;
+package n2exercise1;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
