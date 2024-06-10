@@ -21,7 +21,6 @@ public class SerializeUser {
                 String directory = annotation.directory();
                 String outputDirectory = System.getProperty("user.dir") + "/" + directory;
 
-                // Verificar si el directorio de salida existe y crearlo si no
                 File outputDir = new File(outputDirectory);
                 if (!outputDir.exists()) {
                     if (!outputDir.mkdirs()) {
