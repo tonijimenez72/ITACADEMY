@@ -9,7 +9,7 @@ public class SerializeOrDe {
 
     public static void serializeTest() {
         String serFile = "person.ser";
-        String filePath = IOLog.getResourceFilePath(serFile);
+        String filePath = WriteLog.getResourceFilePath(serFile);
 
         System.out.println(filePath);
 

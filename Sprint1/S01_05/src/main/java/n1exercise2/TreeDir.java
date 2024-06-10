@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
-public class GetPath {
+public class TreeDir {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_BLUE = "\u001B[34m";
@@ -33,6 +33,7 @@ public class GetPath {
                         + "Please, enter a valid path (example: C:/Test):");
                 path = scanner.nextLine();
             }
+            scanner.close();
         }
         return path;
     }

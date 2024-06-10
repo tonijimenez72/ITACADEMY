@@ -1,4 +1,4 @@
-package n2exercise1;
+package n1exercise3;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
-public class GetPath {
+public class TreeDir {
 
     private static int depth = 0;
 

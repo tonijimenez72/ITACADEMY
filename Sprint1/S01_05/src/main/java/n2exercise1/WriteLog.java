@@ -1,14 +1,13 @@
-package n1exercise3;
+package n2exercise1;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class IOLog {
-    public static void getLog(String[] args) {
-        String readPath = GetPath.checkParameter(args);
-        String recursiveLs = GetPath.getChildItemsRecursive(readPath);
-        String exercise = IOLog.class.getPackage().getName();
+public class WriteLog {
+    public static void writeLog(String file) {
+        String recursiveLs = TreeDir.getChildItemsRecursive(file);
+        String exercise = ReadProperties.readProperties("file");
         String writeFilePath = getResourceFilePath(exercise);
         String writeResult = writeToFile(recursiveLs, writeFilePath);
 
@@ -36,9 +35,9 @@ public class IOLog {
                 String classFilePath = Main.class.getResource("Main.class").getPath();
                 String projectPath = classFilePath.substring(1, classFilePath.indexOf("/target/classes"));
                 String mainJavaPath = projectPath + "/src/main/java/" + exercise.replace(".", "/");
-                filePath = mainJavaPath + "/resources/" + file + ".txt";
+                filePath = mainJavaPath +"/resources/" + file;
             }else{
-                filePath = "resources/" + file + ".txt";
+                filePath = "resources/" + file;
             }
             return filePath;
         } catch (Exception e) {

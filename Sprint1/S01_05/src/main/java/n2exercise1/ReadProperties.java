@@ -4,10 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class GetProperties {
-    public static String getProperties(String property) {
+public class ReadProperties {
+    public static String readProperties(String property) {
         String configFile = "configuration.properties";
-        String configFilePath = IOLog.getResourceFilePath(configFile);
+        String configFilePath = WriteLog.getResourceFilePath(configFile);
         Properties prop = new Properties();
         String result = "";
 

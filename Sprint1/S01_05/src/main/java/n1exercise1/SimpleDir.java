@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class GetPath {
+public class SimpleDir {
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_RESET = "\u001B[0m";
@@ -28,8 +28,10 @@ public class GetPath {
                         + "Please, enter a valid path (example: C:/Test):");
                 path = scanner.nextLine();
             }
+            scanner.close();
         }
         return path;
+
     }
 
     public static String formatPath(String path) {

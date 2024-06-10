@@ -7,12 +7,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class IOLog {
+public class WriteLog {
 
     public static void getLog(String[] args) {
-        String readPath = GetPath.checkParameter(args);
-        String recursiveLs = GetPath.getChildItemsRecursive(readPath);
-        String exercise = IOLog.class.getPackage().getName();
+        String readPath = TreeDir.checkParameter(args);
+        String recursiveLs = TreeDir.getChildItemsRecursive(readPath);
+        String exercise = WriteLog.class.getPackage().getName();
         String writeFilePath = getResourceFilePath(exercise);
         String writeResult = writeToFile(recursiveLs, writeFilePath);
 
@@ -22,7 +22,7 @@ public class IOLog {
     }
 
     public static String getPackageName() {
-        return IOLog.class.getPackage().getName();
+        return WriteLog.class.getPackage().getName();
     }
 
     public static boolean runningFromTerminal() {
@@ -38,7 +38,6 @@ public class IOLog {
         return terminal;
     }
 
-
     public static String getResourceFilePath(String file) {
         try {
             String filePath = "";
@@ -47,7 +46,7 @@ public class IOLog {
                 String classFilePath = Main.class.getResource("Main.class").getPath();
                 String projectPath = classFilePath.substring(1, classFilePath.indexOf("/target/classes"));
                 String mainJavaPath = projectPath + "/src/main/java/" + exercise.replace(".", "/");
-                filePath = mainJavaPath + "/resources/" + file + ".txt";
+                filePath = mainJavaPath +"/resources/" + file + ".txt";
             }else{
                 filePath = "resources/" + file + ".txt";
             }

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
 
-public class GetPath {
+public class TreeDir {
 
     private static int depth = 0;
 
@@ -21,6 +21,7 @@ public class GetPath {
                         + "Please, enter a valid path to save tree (example: C:/Test):");
                 path = scanner.nextLine();
             }
+            scanner.close();
         }
         return path;
     }
