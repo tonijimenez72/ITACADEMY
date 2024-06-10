@@ -17,12 +17,10 @@ public class PlayWithStrings {
         list.add("3");
         list.add("4");
 
-        // Sort alphabetically by the first character
         list.sort((s1, s2) -> s1.charAt(0) - s2.charAt(0));
         System.out.println(ANSI_GREEN + "Sorted alphabetically by the first character:" + ANSI_RESET);
         System.out.println(list);
 
-        // Sort strings containing 'e' first
         list.sort((s1, s2) -> {
             if (s1.contains("e") && !s2.contains("e")) {
                 return -1;
@@ -35,12 +33,10 @@ public class PlayWithStrings {
         System.out.println(ANSI_GREEN + "\nStrings containing 'e' sorted first:" + ANSI_RESET);
         System.out.println(list);
 
-        // Replace 'a' with '4' in the list elements
         list.replaceAll(s -> s.replace("a", "4"));
         System.out.println(ANSI_GREEN + "\nList with elements modified to replace 'a' with '4':" + ANSI_RESET);
         System.out.println(list);
 
-        // Display only the elements that are numeric
         System.out.println(ANSI_GREEN + "\nNumeric elements in the list:" + ANSI_RESET);
         list.stream()
                 .filter(s -> s.matches("\\d+")) // filter numeric elements
