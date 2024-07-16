@@ -1,8 +1,6 @@
-package n01exercise3.invoker;
+package n01exercise3.commands;
 
-import n01exercise3.commands.*;
-
-public class Invoker {
+public class RunCommand {
     private Command start;
     private Command brake;
     private Command accelerate;

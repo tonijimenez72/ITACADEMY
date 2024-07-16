@@ -1,12 +1,11 @@
 package n01exercise3;
 
 import n01exercise3.commands.*;
-import n01exercise3.invoker.Invoker;
 import n01exercise3.vehicles.*;
 
 public class Parking {
     public static void start(){
-        Invoker commands = new Invoker();
+        RunCommand commands = new RunCommand();
 
         execute(commands, new Car());
         execute(commands, new Bike());
@@ -14,7 +13,7 @@ public class Parking {
         execute(commands, new Boat());
     }
 
-    public static void execute(Invoker commands, Vehicle vehicle) {
+    public static void execute(RunCommand commands, Vehicle vehicle) {
         commands.setStart(new Start(vehicle));
         commands.setAccelerate(new Accelerate(vehicle));
         commands.setBrake(new Brake(vehicle));

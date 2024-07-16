@@ -11,6 +11,6 @@ public class Brake implements Command {
 
     @Override
     public void execute() {
-        vehicle.brake();
+        System.out.println(vehicle + "'s braking.");
     }
 }
