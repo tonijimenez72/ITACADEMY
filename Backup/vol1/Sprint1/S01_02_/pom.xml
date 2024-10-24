@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.itacademy.javaandspringframework.sprint1.s01_01</groupId>
-    <artifactId>S01_01</artifactId>
+    <groupId>com.itacademy.sprint1.s01_02</groupId>
+    <artifactId>S01_02_</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
