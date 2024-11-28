@@ -9,7 +9,7 @@ public class OnlineWorker extends Worker {
 
     @Override
     public double calculateSalary(int hours) {
-        return super.calculateSalary(hours) + INTERNET;
+        return hours * getPricePerHour() + INTERNET;
     }
 
     @Deprecated

@@ -1,6 +1,6 @@
 package n1exercise2;
 
-public class Worker {
+public abstract class Worker {
     private String name;
     private String surname;
     private double pricePerHour;
@@ -23,9 +23,7 @@ public class Worker {
         return pricePerHour;
     }
 
-    public double calculateSalary(int hours) {
-        return hours * pricePerHour;
-    }
+    public abstract double calculateSalary(int hours);
 
     @Override
     public String toString() {
