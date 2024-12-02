@@ -1,6 +1,8 @@
 package n1exercise2;
 
 public class Main {
+    @SuppressWarnings("deprecation")
+
     public static void main(String[] args) {
         OnlineWorker onlineWorker = new OnlineWorker("Jane", "Doe", 20.0);
         OnsiteWorker onsiteWorker = new OnsiteWorker("Joana", "Petita", 18.0);
