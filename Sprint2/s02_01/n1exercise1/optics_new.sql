@@ -1,15 +1,10 @@
-DROP DATABASE IF EXISTS optics_new;
-CREATE DATABASE optics_new;
-USE optics_new;
-
-
 CREATE TABLE `clients` (
   `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `idCard` VARCHAR(20) UNIQUE NOT NULL,
   `registration_date` DATETIME NOT NULL,
-  `refered_by_id` INT DEFAULT NULL,
+  `refered_by_id` INT DEFAULT null,
   `contact_id` INT
 );
 
@@ -17,7 +12,7 @@ CREATE TABLE `suppliers` (
   `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
   `idcard` VARCHAR(20) UNIQUE NOT NULL,
-  `fax` VARCHAR(15) DEFAULT NULL11,
+  `fax` VARCHAR(15),
   `contact_id` INT
 );
 
