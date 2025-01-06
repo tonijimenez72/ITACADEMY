@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS fruits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(20) NOT NULL,
+    weight_in_kilograms DOUBLE NOT NULL
+);
