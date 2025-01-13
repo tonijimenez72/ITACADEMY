@@ -1,1 +1,0 @@
-INSERT INTO fruits (name, weight_in_kilograms) VALUES ('test', 1);
