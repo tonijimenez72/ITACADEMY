@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class FruitServiceImpl {
+public class FruitServiceImpl implements FruitService {
     @Autowired
     private FruitRepository fruitRepository;
 
@@ -36,12 +36,19 @@ public class FruitServiceImpl {
     public Fruit updateFruit(Fruit fruit) {
         fruitRepository.findById(fruit.getId())
                 .orElseThrow(() ->
-                        new FruitNotExistsException("Fruit with ID " + fruit.getName()  + " doesn't exist in our database.")
+                        new FruitNotExistsException(
+                                String.format("Fruit with ID %d doesn't exist in our database.", fruit.getId()))
                 );
+        fruitRepository.findByName(fruit.getName())
+                .filter(existingFruit -> existingFruit.getId() != fruit.getId())
+                .ifPresent(existingFruit -> {
+                    throw new FruitAlreadyExistsException(
+                            String.format("A fruit with the name '%s' already exists in our database.", fruit.getName()));
+                });
         return fruitRepository.save(fruit);
     }
 
-    public void deleteFruitById(int id){
+    public void deleteFruit(int id){
         fruitRepository.findById(id)
                 .orElseThrow(() ->
                         new FruitNotExistsException("Fruit with ID " + id  + " doesn't exist in our database.")

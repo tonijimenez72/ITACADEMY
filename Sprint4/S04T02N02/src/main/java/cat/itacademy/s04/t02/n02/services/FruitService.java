@@ -6,8 +6,8 @@ import java.util.Optional;
 
 public interface FruitService {
     Fruit addFruit(Fruit fruit);
-    Fruit updateFruit(int id, Fruit fruit);
-    void deleteFruit(int id);
-    Optional<Fruit> getFruitById(int id);
+    Fruit getFruitById(int id);
     List<Fruit> getAllFruits();
+    Fruit updateFruit(Fruit fruit);
+    void deleteFruit(int id);
 }
