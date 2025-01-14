@@ -14,6 +14,7 @@ public class FruitServiceImpl implements FruitService {
     @Autowired
     private FruitRepository fruitRepository;
 
+    @Override
     public Fruit addFruit(Fruit fruit){
         fruitRepository.findByName(fruit.getName())
                 .ifPresent(fruitAlreadySaved -> {
@@ -22,33 +23,37 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.save(fruit);
     }
 
-    public Fruit getFruitById(int id) {
+    @Override
+    public Fruit getFruitById(String id) {
         return fruitRepository.findById(id)
                 .orElseThrow(() ->
                         new FruitNotExistsException("Fruit with ID " + id  + " doesn't exist in our database.")
                 );
     }
 
+    @Override
     public List<Fruit> getAllFruits() {
         return fruitRepository.findAll();
     }
 
+    @Override
     public Fruit updateFruit(Fruit fruit) {
         fruitRepository.findById(fruit.getId())
                 .orElseThrow(() ->
                         new FruitNotExistsException(
-                                String.format("Fruit with ID %d doesn't exist in our database.", fruit.getId()))
+                                String.format("Fruit with id: " + fruit.getId() + " doesn't exist in our database."  ))
                 );
         fruitRepository.findByName(fruit.getName())
-                .filter(existingFruit -> existingFruit.getId() != fruit.getId())
+                .filter(existingFruit -> !existingFruit.getId().equals(fruit.getId()))
                 .ifPresent(existingFruit -> {
                     throw new FruitAlreadyExistsException(
-                            String.format("A fruit with the name '%s' already exists in our database.", fruit.getName()));
+                            String.format("Fruit with the name " + fruit.getName() + " already exists in our database."));
                 });
         return fruitRepository.save(fruit);
     }
 
-    public void deleteFruit(int id){
+    @Override
+    public void deleteFruit(String id){
         fruitRepository.findById(id)
                 .orElseThrow(() ->
                         new FruitNotExistsException("Fruit with ID " + id  + " doesn't exist in our database.")
