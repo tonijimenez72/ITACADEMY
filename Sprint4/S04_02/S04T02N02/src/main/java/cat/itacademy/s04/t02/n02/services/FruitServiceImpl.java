@@ -14,6 +14,7 @@ public class FruitServiceImpl implements FruitService {
     @Autowired
     private FruitRepository fruitRepository;
 
+    @Override
     public Fruit addFruit(Fruit fruit){
         fruitRepository.findByName(fruit.getName())
                 .ifPresent(fruitAlreadySaved -> {
@@ -22,6 +23,7 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.save(fruit);
     }
 
+    @Override
     public Fruit getFruitById(int id) {
         return fruitRepository.findById(id)
                 .orElseThrow(() ->
@@ -29,10 +31,12 @@ public class FruitServiceImpl implements FruitService {
                 );
     }
 
+    @Override
     public List<Fruit> getAllFruits() {
         return fruitRepository.findAll();
     }
 
+    @Override
     public Fruit updateFruit(Fruit fruit) {
         fruitRepository.findById(fruit.getId())
                 .orElseThrow(() ->
@@ -48,6 +52,7 @@ public class FruitServiceImpl implements FruitService {
         return fruitRepository.save(fruit);
     }
 
+    @Override
     public void deleteFruit(int id){
         fruitRepository.findById(id)
                 .orElseThrow(() ->
